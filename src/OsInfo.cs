@@ -1,4 +1,5 @@
 ﻿using System.Management;
+using System.Threading.Tasks;
 
 namespace ComputerLoger
 {
@@ -18,8 +19,7 @@ namespace ComputerLoger
                 osName = OsObject["Caption"].ToString();
                 osVersion = OsObject["Version"].ToString();
                 osSerial = OsObject["SerialNumber"].ToString();
-
-
+                
                 osString = $"Nome: {osName}\nVersão do sistema: {osVersion}\n" +
                     $"Número do Serial: {osSerial}";
             }

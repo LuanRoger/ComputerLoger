@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ComputerLoger
@@ -9,49 +10,69 @@ namespace ComputerLoger
         {
             InitializeComponent();
         }
-        public FolderBrowserDialog logDir = new FolderBrowserDialog();
-        private void button1_Click(object sender, EventArgs e)
-        {
+        private void btnGenerateLog_CLick(object sender, EventArgs e)
+        { 
+            FolderBrowserDialog logDir = new FolderBrowserDialog();
             DialogResult dirResult = logDir.ShowDialog();
 
-            if(logDir.SelectedPath == "" || dirResult == DialogResult.Cancel || dirResult == DialogResult.Abort) { return; }
+            if(logDir.SelectedPath == "" || dirResult == DialogResult.Cancel || dirResult == DialogResult.Abort) return;
             SaveLog saveLog = new SaveLog();
             saveLog.GenerateLog(logDir.SelectedPath);
         }
 
-        private void btnSeeLog_Click(object sender, EventArgs e)
+        private async void btnSeeLog_Click(object sender, EventArgs e)
         {
             //Sistema Operacional
             OsInfo osInfo = new OsInfo();
-            string logOsString = "===Sistema Operacional========================\n" +
-                $"{osInfo.SeeOsInfo()}\n";
+            string infoOsString = await Task.Run(() => osInfo.SeeOsInfo());
+            string logOsString = "===Sistema Operacional========================\n" + 
+                                 $"{infoOsString}\n";
+
+            pgbSeeLog.Value = 16;
 
             //Processador
             ProcessorInfo processorInfo = new ProcessorInfo();
-            string logProcessorString = "\n===Processador=============================\n" +
-                $"{processorInfo.SeeProcessorInfo()}\n";
+            string infoProcessorString = await Task.Run(() => processorInfo.SeeProcessorInfo());
+            string logProcessorString = "\n===Processador=============================\n" + 
+                                        $"{infoProcessorString}\n";
+            
+            pgbSeeLog.Value = 32;
 
             //GPU
             GpuInfo gpuInfo = new GpuInfo();
-            string logGpuString = "\n===GPU==================================\n" +
-                $"{gpuInfo.SeeGpuInfo()}\n";
+            string infoGpu = await Task.Run(() => gpuInfo.SeeGpuInfo());
+            string logGpuString = "\n===GPU==================================\n" + 
+                                  $"{infoGpu}\n";
 
+            pgbSeeLog.Value = 48;
+            
             //Sound Device
             SoundInfo soundInfo = new SoundInfo();
-            string logSoundString = "\n===Dispositivo de Som========================\n" +
-                $"{soundInfo.SeeSoundDevice()}\n";
+            string infoSound = await Task.Run(() => soundInfo.SeeSoundDevice());
+            string logSoundString = "\n===Dispositivo de Som========================\n" + 
+                                    $"{infoSound}\n";
+            
+            pgbSeeLog.Value = 64;
 
             //Printers
             PrinterInfo printerInfo = new PrinterInfo();
-            string logPrinterString = "\n===Impressoras========================\n" +
-                $"{printerInfo.SeePrinterInfo()}\n";
+            string infoPrinter = await Task.Run(() => printerInfo.SeePrinterInfo());
+            string logPrinterString = "\n===Impressoras========================\n" + 
+                                      $"{infoPrinter}\n";
+
+            pgbSeeLog.Value = 80;
 
             //RAM
             RamInfo ramInfo = new RamInfo();
-            string logRamString = "\n===RAM==================================\n" +
-                $"{ramInfo.SeeRam()}";
-
+            string infoRam = await Task.Run(() => ramInfo.SeeRam());
+            string logRamString = "\n===RAM==================================\n" + 
+                                  $"{infoRam}";
+            
+            pgbSeeLog.Value = 100;
+            
             MessageBox.Show(logOsString + logProcessorString + logGpuString + logSoundString + logPrinterString + logRamString, "Informações", MessageBoxButtons.OK);
+
+            pgbSeeLog.Value = 0;
         }
     }
 }

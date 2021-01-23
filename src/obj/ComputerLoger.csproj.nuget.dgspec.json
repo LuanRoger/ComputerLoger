@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luanr\\source\\repos\\ComputerLoger\\ComputerLoger.csproj": {}
+    "C:\\Users\\luanr\\Documents\\Jobs\\c_sharp\\clones\\ComputerLoger\\src\\ComputerLoger.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luanr\\source\\repos\\ComputerLoger\\ComputerLoger.csproj": {
+    "C:\\Users\\luanr\\Documents\\Jobs\\c_sharp\\clones\\ComputerLoger\\src\\ComputerLoger.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luanr\\source\\repos\\ComputerLoger\\ComputerLoger.csproj",
+        "projectUniqueName": "C:\\Users\\luanr\\Documents\\Jobs\\c_sharp\\clones\\ComputerLoger\\src\\ComputerLoger.csproj",
         "projectName": "ComputerLoger",
-        "projectPath": "C:\\Users\\luanr\\source\\repos\\ComputerLoger\\ComputerLoger.csproj",
+        "projectPath": "C:\\Users\\luanr\\Documents\\Jobs\\c_sharp\\clones\\ComputerLoger\\src\\ComputerLoger.csproj",
         "packagesPath": "C:\\Users\\luanr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luanr\\source\\repos\\ComputerLoger\\obj\\",
+        "outputPath": "C:\\Users\\luanr\\Documents\\Jobs\\c_sharp\\clones\\ComputerLoger\\src\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet"
         ],
         "configFilePaths": [
           "C:\\Users\\luanr\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,14 +22,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
             "projectReferences": {}
           }
         },
@@ -40,7 +41,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "dependencies": {
             "ByteSize": {
               "target": "Package",
@@ -69,7 +71,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
